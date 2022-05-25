@@ -72,9 +72,10 @@ firewall-cmd --permanent --zone=public --add-port=2888/tcp
 firewall-cmd --permanent --zone=public --add-port=3888/tcp
 firewall-cmd --permanent --zone=public --add-port=5432/tcp
 firewall-cmd --permanent --zone=public --add-port=3302/tcp
+firewall-cmd --permanent --zone=public --add-port=9092/tcp
+firewall-cmd --permanent --zone=public --add-port=9093/tcp
 firewall-cmd --add-service=ntp --permanent
 firewall-cmd --reload
-firewall-cmd --zone=public --list-all
 
 #ntp server
 yum install -y ntp
