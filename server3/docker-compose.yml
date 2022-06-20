@@ -11,7 +11,7 @@ services:
     networks:
       - cluster_net
     volumes:
-      - /home/${SERVER3_USER}/docker/zookeeper_volume:/bitnami
+      - zookeeper_data:/bitnami
     environment:
       - ZOO_SERVER_ID=3
       - ALLOW_ANONYMOUS_LOGIN=yes
@@ -37,7 +37,7 @@ services:
       - KAFKA_CFG_LOG_RETENTION_HOURS=72
       - KAFKA_CFG_LOG_RETENTION_CHECK_INTERVAL_MS=10000
     volumes:
-      - /home/${SERVER3_USER}/docker/kafka_volume:/bitnami
+      - kafka_data:/bitnami
     depends_on:
       - zookeeper3
 
