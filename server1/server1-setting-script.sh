@@ -39,7 +39,7 @@ pip3 install openpyxl==3.0.9
 pip3 install sysv-ipc==1.1.0
 pip3 install aiohttp==3.7.4.post0
 pip3 install requests==2.26.0
-pip3 install python-dotenv==0.19.2
+pip3 install python-dotenv
 pip3 install psycopg2-binary
 
 # nodejs LTS version install #
@@ -81,3 +81,21 @@ yum install -y ntp
 systemctl start ntpd
 systemctl enable ntpd
 systemctl status ntpd
+
+#docker swarm init
+echo ""
+echo ""
+echo "[SWARM INIT] 1. Docker Swarm init >> /root/swarmpool.txt"
+docker swarm init --advertise-addr $SERVER1_IP | grep -- --token > /root/swarmpool.txt
+echo ""
+echo ""
+echo ""
+echo "[SWARM INIT] 2. Overlay Network init"
+docker network create --attachable --driver overlay cluster_net
+echo "[SWARM INIT COMPLETE]"
+echo ""
+echo ""
+echo ""
+echo "[KAFKA CLUSTER] To add docker container, run this command...."
+echo "docker-compose --env-file ../.env up -d"
+echo "[KAFKA CLUSTER COMPLETE]"

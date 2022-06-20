@@ -39,7 +39,7 @@ pip3 install openpyxl==3.0.9
 pip3 install sysv-ipc==1.1.0
 pip3 install aiohttp==3.7.4.post0
 pip3 install requests==2.26.0
-pip3 install python-dotenv==0.19.2
+pip3 install python-dotenv
 pip3 install psycopg2-binary
 
 # nodejs 12.x version install #
@@ -83,3 +83,7 @@ yum install -y ntp
 systemctl start ntpd
 systemctl enable ntpd
 systemctl status ntpd
+
+echo ""
+echo ""
+echo "[SWARM Join] You have to join docker swarm"
