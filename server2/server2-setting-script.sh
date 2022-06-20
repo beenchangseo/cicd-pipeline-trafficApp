@@ -74,6 +74,8 @@ firewall-cmd --permanent --zone=public --add-port=5432/tcp
 firewall-cmd --permanent --zone=public --add-port=3302/tcp
 firewall-cmd --permanent --zone=public --add-port=9092/tcp
 firewall-cmd --permanent --zone=public --add-port=9093/tcp
+firewall-cmd --permanent --zone=public --add-port=3000/tcp
+firewall-cmd --permanent --zone=public --add-port=3001/tcp
 firewall-cmd --add-service=ntp --permanent
 firewall-cmd --reload
 
