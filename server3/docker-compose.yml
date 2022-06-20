@@ -3,6 +3,7 @@ version: "3"
 services:
   zookeeper3:
     image: docker.io/bitnami/zookeeper:3.8
+    user: root
     restart: always
     ports:
       - '2181:2181'
@@ -18,7 +19,7 @@ services:
       - ZOO_SERVERS=zookeeper1:2888:3888,zookeeper2:2888:3888,zookeeper3:2888:3888
   kafka-2:
     image: docker.io/bitnami/kafka:3.2
-    container_name: kafka
+    user: root
     restart: always
     ports:
       - "9092:9092"

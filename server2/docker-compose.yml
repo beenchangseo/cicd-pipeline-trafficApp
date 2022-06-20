@@ -4,6 +4,7 @@ services:
 
   zookeeper2:
     image: docker.io/bitnami/zookeeper:3.8
+    user: root
     restart: always
     ports:
       - '2181:2181'
@@ -20,6 +21,7 @@ services:
 
   kafka-1:
     image: docker.io/bitnami/kafka:3.2
+    user: root
     container_name: kafka
     restart: always
     ports:
@@ -45,6 +47,7 @@ services:
 
   postgres:
     image: postgres
+    user: root
     restart: always
     ports:
       - "5432:5432"
