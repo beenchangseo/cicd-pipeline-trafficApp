@@ -25,6 +25,7 @@ PORT_NUM = 7070
 sockConnect = False  # SERVER - L/C 연결 상태
 stop_threads = False
 
+print("[CONFIG] KAFKA SERVER : ", KAFKA_SERVERS)
 print("[RUN] KAFKA Producer, Consumer 생성")
 kafka_producer = KafkaProducer(bootstrap_servers=KAFKA_SERVERS, api_version=API_VERSION)
 cmd_consumer = KafkaConsumer(
