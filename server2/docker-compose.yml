@@ -12,7 +12,7 @@ services:
     networks:
       - cluster_net
     volumes:
-      - zookeeper_data:/bitnami
+      - /home/${SERVER2_USER}/docker/zookeeper_volume:/bitnami
     environment:
       - ZOO_SERVER_ID=2
       - ALLOW_ANONYMOUS_LOGIN=yes
@@ -33,13 +33,13 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
       - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
-      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://192.168.1.182:9092,EXTERNAL://192.168.1.182:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://${SERVER2_USER}:9092,EXTERNAL://${SERVER2_USER}:9093
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
       - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
       - KAFKA_CFG_LOG_RETENTION_HOURS=72
       - KAFKA_CFG_LOG_RETENTION_CHECK_INTERVAL_MS=10000
     volumes:
-      - kafka_data:/bitnami
+      - /home/${SERVER2_USER}/docker/kafka_volume:/bitnami
     depends_on:
       - zookeeper2
 
@@ -53,12 +53,12 @@ services:
       POSTGRES_PASSWORD: xhdtlsqhdks1
       POSTGRES_DB: tcs_database
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - /home/${SERVER2_USER}/docker/postgres_volume:/var/lib/postgresql/data
 
 volumes:
   postgres:
-  zookeeper_data:
-  kafka_data:
+  zookeeper2:
+  kafka-1:
 
 
 networks:
