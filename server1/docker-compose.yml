@@ -46,4 +46,4 @@ networks:
   cluster_net:
     driver: overlay
     external:
-      name: cluster-net
+      name: cluster_net
